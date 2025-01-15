@@ -380,7 +380,11 @@ async function wranglerCommands(
 			setOutput("command-stderr", stdErr);
 
 			// Check if this command is a workers deployment
-			if (command.startsWith("deploy") || command.startsWith("publish")) {
+			if (
+				command.startsWith("deploy") ||
+				command.startsWith("publish") ||
+				command.startsWith("versions upload")
+			) {
 				const { deploymentUrl } = extractDeploymentUrlsFromStdout(stdOut);
 				setOutput("deployment-url", deploymentUrl);
 			}
